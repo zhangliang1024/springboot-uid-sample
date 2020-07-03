@@ -1,0 +1,59 @@
+spring:
+#  redis:
+#    host: localhost
+#    port: 6379
+#    password:
+#    database: 0
+#    timeout: 10000m
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///uid-starter?characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+
+pzy:
+  uid:
+    enable: true
+    strategy: baidu  # segment snowflake baidu step
+    baidu:
+      assigner: simple # default simple zookeeper redis
+      generator: default # default cached
+#      zookeeper:
+#        interval: 3000
+#        zk-address: localhost:2181
+#        pid-port: 60982
+#      redis:
+#        interval: 3000
+#        pid-port: 60982
+#      def:
+#        time-bits: 29
+#        worker-bits: 21
+#        seq-bits: 13
+#        epoch-str: 2020-06-29
+server:
+  port: 9090
+
+pzy:
+  uid:
+    # 默认开启 snowflake 策略
+    enable: true
+#    # 支持ID生产策略有四种：baidu snowflake segment step  默认使用：snowflake
+#    # 使用默认策略，以下均可以不配置
+#    strategy: baidu  # baidu snowflake segment step
+#    # 仅在使用百度策略时，配置都有默认值。
+#    # 如需修改默认值，则可以修改以下配置
+#    baidu:
+#      assigner: simple # default simple zookeeper redis
+#      generator: default # default cached
+#      zookeeper:
+#        interval: 3000
+#        zk-address: localhost:2181
+#        pid-port: 60982
+#      redis:
+#        interval: 3000
+#        pid-port: 60982
+#      def:
+#        time-bits: 29
+#        worker-bits: 21
+#        seq-bits: 13
+#        epoch-str: 2020-06-29
